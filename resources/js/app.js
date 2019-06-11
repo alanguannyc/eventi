@@ -13,3 +13,4 @@ require('./bootstrap');
  */
 
 require('./components/AddEvent');
+require('./components/RSVPEvent');
