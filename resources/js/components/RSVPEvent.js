@@ -83,14 +83,25 @@ export default class RSVPEvent extends Component {
         
     }
     activeButtonColor = (value) => {
+        const activeButtonStyle = {
+            "going":{
+                backgroundColor:"#29af40", color:'white'
+            },
+            "interested":{
+                backgroundColor:"#e5a22a", color:'white'
+            },
+            "cannot": {
+                backgroundColor:"#e65225", color:'white'
+            }
+        }
         if (value == this.state.status) {
             switch (this.state.status){
                 case "Going":
-                    return {backgroundColor:"#29af40", color:'white'}
+                    return activeButtonStyle.going
                 case "Interested":
-                    return {backgroundColor:"#e5a22a", color:'white'}
+                    return activeButtonStyle.interested
                 case "Can't go":
-                    return {backgroundColor:"#e65225", color:'white'}
+                    return activeButtonStyle.cannot
                 }
         }
         
@@ -100,7 +111,6 @@ export default class RSVPEvent extends Component {
         const listStyle = { paddingLeft: "0px"}
         return (
             <List component="nav" aria-label="Secondary mailbox folders">
-
                             <Divider />
                             <ListItem style={listStyle}>
                                 <ListItemIcon style={{minWidth: "2px"}}>

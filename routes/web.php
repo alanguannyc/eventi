@@ -17,3 +17,6 @@ Route::get('/', function () {
 Route::get('/rsvp', function () {
     return view('rsvp');
 });
+Route::get('/events', function () {
+    return view('events');
+});
