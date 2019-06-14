@@ -10,7 +10,8 @@ import Avatar from '@material-ui/core/Avatar';
 import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
 import Link from '@material-ui/core/Link';
-
+import Tooltip from '@material-ui/core/Tooltip';
+import Fade from '@material-ui/core/Fade';
 // const useStyles = makeStyles((theme: Theme) =>
 //   createStyles({
 //     card: {
@@ -98,21 +99,27 @@ export default class EventCard extends Component{
         </Typography>
       </CardContent>
       <CardActions >
+      <Tooltip title="I'm Going" aria-label="Add" TransitionComponent={Fade} TransitionProps={{ timeout: 600 }} placement="top">
         <IconButton aria-label="I'M GOING" style={this.activeButtonColor("Going")} size="small">
             <i className="material-icons">
             done
             </i>
         </IconButton>
+        </Tooltip>
+        <Tooltip title="Interested" aria-label="Add" TransitionComponent={Fade} TransitionProps={{ timeout: 600 }}>
         <IconButton aria-label="Share" style={this.activeButtonColor("Interested")} size="small">
             <i className="material-icons">
             change_history
             </i>
         </IconButton>
+        </Tooltip>
+        <Tooltip title="Can't go" aria-label="Add" TransitionComponent={Fade} TransitionProps={{ timeout: 600 }}>
         <IconButton style={this.activeButtonColor("Cannot")} size="small">
             <i className="material-icons">
             clear
             </i>
         </IconButton>
+        </Tooltip>
         <div style={fabStyle}>
        
         <Link href={`/rsvp`} >

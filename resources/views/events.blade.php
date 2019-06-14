@@ -12,7 +12,7 @@
         <link href="{{ asset('css/app.css') }}" rel="stylesheet" type="text/css">
         
         <!-- Styles -->
-       
+        <link rel="shortcut icon" href="{{ asset('image/calendar.png') }}">
     </head>
     <body>
         <div class="flex-center position-ref full-height">

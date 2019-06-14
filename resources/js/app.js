@@ -15,3 +15,4 @@ require('./bootstrap');
 require('./components/AddEvent');
 require('./components/RSVPEvent');
 require('./components/EventsList');
+require('./components/MemberDashboard');

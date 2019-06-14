@@ -11,6 +11,7 @@ import IconButton from '@material-ui/core/IconButton';
 import InfoIcon from '@material-ui/icons/Info';
 import MaterialTable from "material-table";
 import EventCard from './EventCard';
+import MemberDashboard from './MemberDashboard';
 
 export default class EventsList extends Component {
   
@@ -41,11 +42,16 @@ export default class EventsList extends Component {
 
     return (
       <div>
+      <MemberDashboard>
+      
         <Container>
           <Grid container spacing={3}>
             { eventcards }
           </Grid>
         </Container>
+      
+      </ MemberDashboard>
+      
       </div>
     )
   }
