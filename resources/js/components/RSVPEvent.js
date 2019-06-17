@@ -278,7 +278,4 @@ export default class RSVPEvent extends Component {
   
 
 
-if (document.getElementById('rsvp')) {
-    ReactDOM.render(<RSVPEvent />, document.getElementById('rsvp'));
-}
 

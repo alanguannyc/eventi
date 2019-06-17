@@ -12,7 +12,8 @@ require('./bootstrap');
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
+
 require('./components/AddEvent');
 require('./components/RSVPEvent');
 require('./components/EventsList');
-require('./components/MemberDashboard');
+require('./components/Members');

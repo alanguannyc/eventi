@@ -28,10 +28,13 @@
     "dependencies": {
         "@material-ui/core": "^4.1.0",
         "@material-ui/icons": "^4.1.0",
-        "@material-ui/styles": "^4.1.0",
+        "@material-ui/styles": "^4.1.1",
         "antd": "^3.19.2",
         "material-table": "^1.39.0",
         "react-add-to-calendar": "^0.1.5",
-        "react-material-ui-form-validator": "^2.0.9"
+        "react-material-ui-form-validator": "^2.0.9",
+        "react-router-dom": "^5.0.1",
+        "underscore": "^1.9.1",
+        "validate.js": "^0.13.1"
     }
 }

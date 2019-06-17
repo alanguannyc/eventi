@@ -11,12 +11,25 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-Route::get('/rsvp', function () {
-    return view('rsvp');
+
+
+
+Route::get('/account', function () {
+    return view('member.account');
 });
 Route::get('/events', function () {
     return view('events');
+});
+
+Route::group(['prefix'=>'/','as'=>'member'], function(){
+    Route::get('/', function () {
+        return view('welcome');
+    });
+
+    Route::get('login', function () {
+        return view('member.login');
+    });
+    Route::get('register', function () {
+        return view('member.register');
+    });
 });
