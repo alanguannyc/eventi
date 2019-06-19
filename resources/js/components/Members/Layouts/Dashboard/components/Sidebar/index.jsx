@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Link } from "react-router-dom";
 
 // Externals
 import classNames from 'classnames';
@@ -17,7 +16,15 @@ import {
   ListItemIcon,
   ListItemText,
   ListSubheader,
-  Typography
+  Typography,
+  Dialog,
+  DialogActions,
+  DialogContent,
+  DialogContentText,
+  DialogTitle,
+  Slide,
+  Button,
+  Link,
 } from '@material-ui/core';
 
 // Material icons
@@ -35,13 +42,32 @@ import {
 
 // Component styles
 import styles from './styles';
-
+const Transition = React.forwardRef(function Transition(props, ref) {
+  return <Slide direction="up" ref={ref} {...props} />;
+});
 class Sidebar extends Component {
+  constructor(props){
+    super(props);
+    this.state={
+      name: "John Doe",
+      title: "HR Director",
+      open:false
+    }
+  }
+  handleClose = ()=>{
+    this.setState({open:false})
+  }
+  handleClickOpen = () => {
+    this.setState({open:true})
+  }
   render() {
+    const Transition = React.forwardRef(function Transition(props, ref) {
+      return <Slide direction="up" ref={ref} {...props} />;
+    });
     const { classes, className } = this.props;
 
     const rootClassName = classNames(classes.root, className);
-
+    
     return (
       <nav className={rootClassName}>
         <div className={classes.logoWrapper}>
@@ -60,22 +86,22 @@ class Sidebar extends Component {
         <div className={classes.profile}>
           <List to="/account">
             <Avatar
-              alt="Roman Kutepov"
+              alt= {this.state.name}
               className={classes.avatar}
-              src="/images/avatars/avatar_1.png"
+              src="/image/default_avatar.png"
             />
           </List>
           <Typography
             className={classes.nameText}
             variant="h6"
           >
-            Roman Kutepov
+            {this.state.name}
           </Typography>
           <Typography
             className={classes.bioText}
             variant="caption"
           >
-            Brain Director
+            {this.state.title}
           </Typography>
         </div>
         <Divider className={classes.profileDivider} />
@@ -103,15 +129,17 @@ class Sidebar extends Component {
             activeclassname={classes.activeListItem}
             className={classes.listItem}
             component="a"
-            href="/login"
+            href="/events"
             
           >
             <ListItemIcon className={classes.listItemIcon}>
-              <LockOpenIcon />
+              <i className="material-icons">
+              event
+              </i>
             </ListItemIcon>
             <ListItemText
               classes={{ primary: classes.listItemText }}
-              primary="Authentication"
+              primary="Events"
             />
           </ListItem>
           
@@ -119,16 +147,19 @@ class Sidebar extends Component {
           <ListItem
             activeclassname={classes.activeListItem}
             className={classes.listItem}
-
+            component="a"
+            href="/account"
           >
-            <ListItemIcon className={classes.listItemIcon}>
-              <AccountBoxIcon />
-            </ListItemIcon>
             
-            <ListItemText
-            classes={{ primary: classes.listItemText }}
-            primary="Account"
-          />
+            <ListItemIcon className={classes.listItemIcon}>
+            <AccountBoxIcon />
+              </ListItemIcon>
+              
+              <ListItemText
+              classes={{ primary: classes.listItemText }}
+              primary="Account"
+            />
+            
           
           </ListItem>
           <ListItem
@@ -158,9 +189,7 @@ class Sidebar extends Component {
         >
           <ListItem
             className={classes.listItem}
-            component="a"
-            href="https://devias.io/contact-us"
-            target="_blank"
+            onClick={this.handleClickOpen}
           >
             <ListItemIcon className={classes.listItemIcon}>
               <InfoIcon />
@@ -170,6 +199,27 @@ class Sidebar extends Component {
               primary="Customer support"
             />
           </ListItem>
+          <Dialog
+            open={this.state.open}
+            // TransitionComponent={Transition}
+            keepMounted
+            onClose={this.handleClose}
+            aria-labelledby="alert-dialog-slide-title"
+            aria-describedby="alert-dialog-slide-description"
+          >
+            <DialogTitle id="alert-dialog-slide-title">{"Use Google's location service?"}</DialogTitle>
+            <DialogContent>
+              <DialogContentText id="alert-dialog-slide-description">
+                Let Google help apps determine location. This means sending anonymous location data to
+                Google, even when no apps are running.
+              </DialogContentText>
+            </DialogContent>
+            <DialogActions>
+              <Button onClick={this.handleClose} color="primary">
+                Ok
+              </Button>
+            </DialogActions>
+          </Dialog>
         </List>
       </nav>
     );

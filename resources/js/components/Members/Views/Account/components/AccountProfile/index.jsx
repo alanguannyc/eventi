@@ -17,7 +17,13 @@ import { Portlet, PortletContent, PortletFooter } from '../../../../components';
 import styles from './styles';
 
 class AccountProfile extends Component {
+
   render() {
+    const user = {
+      name: "John Doe",
+      company: "hilton",
+      title: "HR director"
+    }
     const { classes, className, ...rest } = this.props;
 
     const rootClassName = classNames(classes.root, className);
@@ -30,42 +36,46 @@ class AccountProfile extends Component {
         <PortletContent>
           <div className={classes.details}>
             <div className={classes.info}>
-              <Typography variant="h2">John Doe</Typography>
+              <Typography variant="h2">{ user.name }</Typography>
               <Typography
                 className={classes.locationText}
                 variant="body1"
               >
-                Rm. Valcea, Romania
+                {user.company}
               </Typography>
               <Typography
                 className={classes.dateText}
                 variant="body1"
               >
-                4:32PM (GMT-4)
+                {user.title}
               </Typography>
             </div>
             <Avatar
               className={classes.avatar}
-              src="/images/avatars/avatar_1.png"
+              src="/image/default_avatar.png"
             />
           </div>
-          <div className={classes.progressWrapper}>
-            <Typography variant="body1">Profile Completeness: 70%</Typography>
-            <LinearProgress
-              value={70}
-              variant="determinate"
-            />
-          </div>
+          
         </PortletContent>
         <PortletFooter>
-          <Button
-            className={classes.uploadButton}
-            color="primary"
-            variant="text"
-          >
-            Upload picture
-          </Button>
-          <Button variant="text">Remove picture</Button>
+            <input
+            accept="image/*"
+            className={classes.input}
+            id="contained-button-file"
+            multiple
+            type="file"
+          />
+          <label htmlFor="contained-button-file">
+            <Button
+              className={classes.uploadButton}
+              color="primary"
+              variant="text"
+              component="span"
+            >
+              Update Photo
+            </Button>
+          </label>
+          <Button variant="text" >Remove Photo</Button>
         </PortletFooter>
       </Portlet>
     );

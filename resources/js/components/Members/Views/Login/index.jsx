@@ -4,7 +4,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import validate from 'validate.js';
 import _ from 'underscore';
-
+import Link from '@material-ui/core/Link';
 // Material helpers
 import { withStyles } from '@material-ui/core';
 
@@ -15,7 +15,8 @@ import {
   IconButton,
   CircularProgress,
   TextField,
-  Typography
+  Typography,
+  Card,
 } from '@material-ui/core';
 
 // Material icons
@@ -26,8 +27,6 @@ import { ArrowBack as ArrowBackIcon } from '@material-ui/icons';
 
 // Component styles
 import styles from './styles';
-
-
 
 // Form validation schema
 import schema from './schema';
@@ -141,22 +140,23 @@ class SignIn extends Component {
                 <Typography
                   className={classes.quoteText}
                   variant="h1"
+                  align="right"
                 >
-                  Hella narwhal Cosby sweater McSweeneys, salvia kitsch before
-                  they sold out High Life.
+                “He who laughs last didn’t get the joke.”
                 </Typography>
                 <div className={classes.person}>
                   <Typography
                     className={classes.name}
                     variant="body1"
+                    align="right"
                   >
-                    Takamaru Ayako
+                    -- Charles de Gaulle
                   </Typography>
                   <Typography
                     className={classes.bio}
                     variant="body2"
                   >
-                    Manager at inVision
+
                   </Typography>
                 </div>
               </div>
@@ -168,6 +168,8 @@ class SignIn extends Component {
             lg={7}
             xs={12}
           >
+        
+
             <div className={classes.content}>
               <div className={classes.contentHeader}>
                 <IconButton
@@ -177,7 +179,9 @@ class SignIn extends Component {
                   <ArrowBackIcon />
                 </IconButton>
               </div>
-              <div className={classes.contentBody}>
+              
+                <div className={classes.contentBody}>
+                <Card className={classes.card}>
                 <form className={classes.form}>
                   <Typography
                     className={classes.title}
@@ -189,33 +193,10 @@ class SignIn extends Component {
                     className={classes.subtitle}
                     variant="body1"
                   >
-                    Sign in with social media
+                  Log in with email address
                   </Typography>
-                  <Button
-                    className={classes.facebookButton}
-                    color="primary"
-                    onClick={this.handleSignIn}
-                    size="large"
-                    variant="contained"
-                  >
-                    
-                    Login with Facebook
-                  </Button>
-                  <Button
-                    className={classes.googleButton}
-                    onClick={this.handleSignIn}
-                    size="large"
-                    variant="contained"
-                  >
-                    
-                    Login with Google
-                  </Button>
-                  <Typography
-                    className={classes.sugestion}
-                    variant="body1"
-                  >
-                    or login with email address
-                  </Typography>
+                
+                  
                   <div className={classes.fields}>
                     <TextField
                       className={classes.textField}
@@ -283,16 +264,21 @@ class SignIn extends Component {
                     variant="body1"
                   >
                     Dont have an account?{' '}
-                    <div
+                    <Link
                       className={classes.signUpUrl}
-                      to="/sign-up"
+
+                      href="/register"
                     >
                       Sign up
-                    </div>
+                    </Link>
                   </Typography>
-                </form>
+                
+                  </form>
+                  </Card>
               </div>
+              
             </div>
+            
           </Grid>
         </Grid>
       </div>

@@ -39,23 +39,23 @@ const states = [
 
 class Account extends Component {
   state = {
-    firstName: 'John',
-    lastName: 'Doe',
+    name: 'John Doe',
+    company: 'Hilton',
+    title: 'HR Director',
+    address: 'fashion ave',
     email: 'contact@devias.io',
-    phone: '',
-    state: 'Alabama',
-    country: 'USA'
+    phone: '212 456 6988',
   };
 
-  handleChange = e => {
+  handleChange = (name, e) => {
     this.setState({
-      state: e.target.value
+      [name]: e.target.value
     });
   };
 
   render() {
     const { classes, className, ...rest } = this.props;
-    const { firstName, lastName, phone, state, country, email } = this.state;
+    const { name, company, title, address, phone, email } = this.state;
 
     const rootClassName = classNames(classes.root, className);
 
@@ -78,23 +78,14 @@ class Account extends Component {
             <div className={classes.field}>
               <TextField
                 className={classes.textField}
-                helperText="Please specify the first name"
-                label="First name"
+                helperText=""
+                label="Name"
                 margin="dense"
                 required
-                value={firstName}
+                value={name}
                 variant="outlined"
+                onChange={this.handleChange.bind(this,"name")}
               />
-              <TextField
-                className={classes.textField}
-                label="Last name"
-                margin="dense"
-                required
-                value={lastName}
-                variant="outlined"
-              />
-            </div>
-            <div className={classes.field}>
               <TextField
                 className={classes.textField}
                 label="Email Address"
@@ -102,51 +93,57 @@ class Account extends Component {
                 required
                 value={email}
                 variant="outlined"
+                onChange={this.handleChange.bind(this,"email")}
               />
+              </div>
+              <div className={classes.field}>
+              <TextField
+                className={classes.textField}
+                label="Company"
+                margin="dense"
+                required
+                value={company}
+                variant="outlined"
+                onChange={this.handleChange.bind(this,"company")}
+              />
+              <TextField
+                className={classes.textField}
+                label="Title"
+                margin="dense"
+                required
+                value={title}
+                variant="outlined"
+                onChange={this.handleChange.bind(this,"title")}
+              />
+
+            </div>
+            <div className={classes.field}>
+              
               <TextField
                 className={classes.textField}
                 label="Phone Number"
                 margin="dense"
-                type="number"
                 value={phone}
                 variant="outlined"
+                onChange={this.handleChange.bind(this,"phone")}
               />
-            </div>
-            <div className={classes.field}>
-              <TextField
+            
+                <TextField
                 className={classes.textField}
-                label="Select State"
+                label="Address"
                 margin="dense"
-                onChange={this.handleChange}
-                required
-                select
-                SelectProps={{ native: true }}
-                value={state}
-                variant="outlined">
-                {states.map(option => (
-                  <option
-                    key={option.value}
-                    value={option.value}
-                  >
-                    {option.label}
-                  </option>
-                ))}
-              </TextField>
-              <TextField
-                className={classes.textField}
-                label="Country"
-                margin="dense"
-                required
-                value={country}
+                value={address}
                 variant="outlined"
+                onChange={this.handleChange.bind(this,"address")}
               />
+              
             </div>
           </form>
         </PortletContent>
         <PortletFooter className={classes.portletFooter}>
           <Button
             color="primary"
-            variant="contained"
+            variant="outlined"
           >
             Save details
           </Button>

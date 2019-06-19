@@ -14,6 +14,5 @@ require('./bootstrap');
 
 
 require('./components/AddEvent');
-require('./components/RSVPEvent');
-require('./components/EventsList');
+require('./components/Guests/RSVPEvent');
 require('./components/Members');

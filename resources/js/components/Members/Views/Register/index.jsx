@@ -24,7 +24,7 @@ import {
 
 // Material icons
 import { ArrowBack as ArrowBackIcon } from '@material-ui/icons';
-
+import Link from '@material-ui/core/Link';
 // Shared utilities
 import validators from './validators';
 
@@ -163,21 +163,20 @@ class SignUp extends Component {
                   className={classes.quoteText}
                   variant="h1"
                 >
-                  Hella narwhal Cosby sweater McSweeney's, salvia kitsch before
-                  they sold out High Life.
+                    We’ve got you covered…
                 </Typography>
                 <div className={classes.person}>
                   <Typography
                     className={classes.name}
                     variant="body1"
                   >
-                    Takamaru Ayako
+
                   </Typography>
                   <Typography
                     className={classes.bio}
                     variant="body2"
                   >
-                    Manager at inVision
+
                   </Typography>
                 </div>
               </div>
@@ -299,12 +298,12 @@ class SignUp extends Component {
                         variant="body1"
                       >
                         I have read the &nbsp;
-                        <List
+                        <Link
                           className={classes.policyUrl}
                           to="#"
                         >
                           Terms and Conditions
-                        </List>
+                        </Link>
                         .
                       </Typography>
                     </div>
@@ -344,12 +343,12 @@ class SignUp extends Component {
                     variant="body1"
                   >
                     Have an account?{' '}
-                    <List
+                    <Button
                       className={classes.signInUrl}
-                      to="/sign-in"
+                      href="/login"
                     >
                       Sign In
-                    </List>
+                    </Button>
                   </Typography>
                 </form>
               </div>
