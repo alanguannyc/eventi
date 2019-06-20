@@ -158,7 +158,7 @@ class EventCard extends Component{
         </Tooltip>
         <div style={fabStyle}>
        
-        <Link href={`/rsvp`} >
+        <Link href={`/event/1`} >
             <i className="material-icons"  style={{"color":"green"}}>
             info
             </i>

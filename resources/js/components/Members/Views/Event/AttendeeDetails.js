@@ -15,8 +15,8 @@ export default class AttendeeDetails extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            name:"",
-            position:"",
+            name:"John Doe",
+            position:"HRD",
             email:"",
             company:"",
             status:"Going",

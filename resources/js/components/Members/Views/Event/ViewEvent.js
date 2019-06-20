@@ -9,7 +9,7 @@ import AddToCalendar from 'react-add-to-calendar';
 import { withStyles } from '@material-ui/core';
 
 // Material components
-import { Avatar, Typography, Button, LinearProgress } from '@material-ui/core';
+import { Avatar, Typography, Button, LinearProgress, Divider } from '@material-ui/core';
 
 // Shared components
 import { Portlet, PortletContent, PortletFooter, PortletHeader, PortletLabel } from '../../components';
@@ -25,7 +25,8 @@ class ViewEvent extends Component {
   render() {
     const event = {
       name: "Mixer",
-      address: "hilton",
+      addressName:"hilton",
+      addressDetail: "fashion ave",
       time: "2019/9/9",
       description: `Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.`
       
@@ -33,7 +34,7 @@ class ViewEvent extends Component {
     const { classes, className, ...rest } = this.props;
 
 
-
+    let icon = { 'calendar-plus-o': 'left' };
     return (
       <div>
       
@@ -58,7 +59,8 @@ class ViewEvent extends Component {
           
         </PortletContent>
       </Portlet>
-
+      <Divider />
+      <br />
       <Portlet
         {...rest}
       >
@@ -72,19 +74,22 @@ class ViewEvent extends Component {
         <div className={classes.eventBody} >
             <Typography
               className={classes.dateText}
-              variant="body1"
+              variant="h5"
             >
               {event.time}
             </Typography>
+            <Divider />
+            <br />
             <AddToCalendar
             event={event}
-
+            buttonTemplate={icon}
             />
         </div>
             
         </PortletContent>
       </Portlet>
-
+      <Divider />
+      <br />
       <Portlet
         {...rest}
       >
@@ -99,8 +104,16 @@ class ViewEvent extends Component {
               className={classes.dateText}
               variant="h5"
             >
-              {event.address}
+              {event.addressName}
           </Typography>
+          <Typography
+              className={classes.dateText}
+              variant="body1"
+            >
+              {event.addressDetail}
+          </Typography>
+          <Divider  />
+          <br />
           <SimpleMap />
         </PortletContent>
       </Portlet>

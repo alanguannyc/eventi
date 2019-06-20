@@ -15,6 +15,6 @@ export default theme => ({
   //   paddingBottom: theme.spacing(2)
   // },
   eventBody: {
-    minHeight: '250px',
+    minHeight: '200px',
   }
 });
